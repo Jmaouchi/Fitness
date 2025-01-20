@@ -1,55 +1,38 @@
-
 <style>
+    /* Global Styles */
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 1.6;
       color: #333;
+      background-color: #f4f4f9;
     }
 
-    /* Navbar Styles */
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #f39c12;
+    }
+
+    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #222;
       padding: 1rem 2rem;
+      background-color: #1a1a1a;
       color: white;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    .navbar a:hover {
-      color: #f39c12;
-    }
-
-    .navbar .menu {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .navbar .hamburger {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .hamburger div {
-      width: 30px;
-      height: 4px;
-      background-color: white;
-      border-radius: 2px;
-    }
-
-    .logo {
+    .navbar .logo {
       display: flex;
       align-items: center;
     }
@@ -63,17 +46,35 @@
     }
 
     .logo span {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: bold;
       color: #f39c12;
     }
 
-    /* Responsive Styles */
+    .menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .hamburger div {
+      width: 30px;
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
     @media (max-width: 768px) {
-      .navbar .menu {
+      .menu {
         display: none;
         flex-direction: column;
-        background-color: #444;
+        background: #333;
         position: absolute;
         top: 70px;
         right: 20px;
@@ -82,85 +83,227 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
 
-      .navbar .menu.active {
+      .menu.active {
         display: flex;
       }
 
-      .navbar .hamburger {
+      .hamburger {
         display: flex;
       }
     }
 
-    /* Section Styles */
-    section {
+  @media (max-width: 600px) {
+      .club-name {
+        font-size: 2rem;
+        letter-spacing: 1.5px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .club-name {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 90vh;
+      background: url('/images/salle.webp') no-repeat center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      background: #f39c12;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #e67e22;
+    }
+
+  .club-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f39c12;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    margin: 20px 0;
+  }
+
+  .club-name span {
+    color: #1a1a1a;
+    background: linear-gradient(90deg, #f39c12, #e74c3c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+      font-size: 1rem;
+  }
+
+
+    /* Content Section */
+    .content {
       padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
       text-align: center;
     }
 
-    section:nth-child(even) {
-      background-color: #f9f9f9;
+    .content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #f39c12;
     }
 
-    section:nth-child(odd) {
-      background-color: #ffffff;
-    }
-
-    section h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #222;
-    }
-
-    section p {
+    .content p {
       font-size: 1.2rem;
       color: #555;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-align: justify;
     }
-</style>
+
+    .content img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 10px;
+      margin: 2rem 0;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #f39c12;
+    }
+
+    footer p {
+      font-size: 1rem;
+      margin: 0;
+    }
+  </style>
+</head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="logo">
+      <img src="/images/fitness.webp" alt="Fitness Logo">
+      <div class="club-name">
+      J<span>F(Jugurta Fitness)</span>
+      </div>
+    </a>
+    <div class="menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
 
-<nav class="navbar">
-  <a href="#" class="logo">
-    <img class="fitness-image" src="/images/fitness.webp" alt="Fitness Logo">
-    <span>Fitness Club</span>
-  </a>
-  <div class="menu">
-    <a href="#section1">Home</a>
-    <a href="#section2">About</a>
-    <a href="#section3">Services</a>
-    <a href="#section4">Contact</a>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Transform Your Body</h1>
+      <p>Join Fitness Club and achieve your health goals with us.</p>
+      <a href="#about" class="cta-button">Learn More</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <div class="content" id="about">
+    <h2>About Fitness Club</h2>
+    <p>
+      Welcome to Fitness Club, your ultimate destination for health and fitness. We believe in providing a supportive environment for people of all levels to achieve their goals.
+    </p>
+    <img src="/images/fclub.webp" alt="About Fitness Club">
+    <p>
+      Join us today and be part of a community that values health, wellness, and personal growth.
+    </p>
   </div>
-  <div class="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</nav>
 
-<section id="section1">
-  <h1>Welcome to the Homepage</h1>
-  <p>This is the home section of the template.</p>
-</section>
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p>&copy; 2025 Fitness Club. All Rights Reserved.</p>
+  </footer>
 
-<section id="section2">
-  <h1>About Us</h1>
-  <p>Learn more about us in this section.</p>
-</section>
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
 
-<section id="section3">
-  <h1>Our Services</h1>
-  <p>Discover the services we offer here.</p>
-</section>
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
 
-<section id="section4">
-  <h1>Contact Us</h1>
-  <p>Get in touch with us through this section.</p>
-</section>
-
-<script>
-  const hamburger = document.querySelector('.hamburger');
-  const menu = document.querySelector('.menu');
-
-  hamburger.addEventListener('click', () => {
-    menu.classList.toggle('active');
-  });
-</script>
