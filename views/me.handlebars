@@ -1,4 +1,166 @@
 
-<div class="main-text">
-  Ramenez l'amour à la maison ! Nous facilitons les voyages de chiots à l'échelle nationale ❤️.
-</div>
+<style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #222;
+      padding: 1rem 2rem;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #f39c12;
+    }
+
+    .navbar .menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .hamburger div {
+      width: 30px;
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 5px;
+      border: 2px solid #f39c12;
+    }
+
+    .logo span {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f39c12;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #444;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .navbar .menu.active {
+        display: flex;
+      }
+
+      .navbar .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Section Styles */
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    section:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    section:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
+    section h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+    section p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+</style>
+<body>
+
+<nav class="navbar">
+  <a href="#" class="logo">
+    <img class="fitness-image" src="/images/fitness.webp" alt="Fitness Logo">
+    <span>Fitness Club</span>
+  </a>
+  <div class="menu">
+    <a href="#section1">Home</a>
+    <a href="#section2">About</a>
+    <a href="#section3">Services</a>
+    <a href="#section4">Contact</a>
+  </div>
+  <div class="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</nav>
+
+<section id="section1">
+  <h1>Welcome to the Homepage</h1>
+  <p>This is the home section of the template.</p>
+</section>
+
+<section id="section2">
+  <h1>About Us</h1>
+  <p>Learn more about us in this section.</p>
+</section>
+
+<section id="section3">
+  <h1>Our Services</h1>
+  <p>Discover the services we offer here.</p>
+</section>
+
+<section id="section4">
+  <h1>Contact Us</h1>
+  <p>Get in touch with us through this section.</p>
+</section>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const menu = document.querySelector('.menu');
+
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
