@@ -1,250 +1,4 @@
-<style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f4f4f9;
-    }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: #f39c12;
-    }
-
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #1a1a1a;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-      border-radius: 5px;
-      border: 2px solid #f39c12;
-    }
-
-    .logo span {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #f39c12;
-    }
-
-    .menu {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .hamburger div {
-      width: 30px;
-      height: 4px;
-      background-color: white;
-      border-radius: 2px;
-    }
-
-    @media (max-width: 768px) {
-      .menu {
-        display: none;
-        flex-direction: column;
-        background: #333;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      }
-
-      .menu.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-    }
-
-  @media (max-width: 600px) {
-      .club-name {
-        font-size: 2rem;
-        letter-spacing: 1.5px;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .club-name {
-        font-size: 1.5rem;
-        letter-spacing: 1px;
-      }
-    }
-
-    /* Hero Section */
-    .hero {
-      height: 90vh;
-      background: url('/images/salle.webp') no-repeat center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
-
-    .hero:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .cta-button {
-      background: #f39c12;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-
-    .cta-button:hover {
-      background: #e67e22;
-    }
-
-  .club-name {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #f39c12;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    letter-spacing: 2px;
-    margin: 20px 0;
-  }
-
-  .club-name span {
-    color: #1a1a1a;
-    background: linear-gradient(90deg, #f39c12, #e74c3c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-      font-size: 1rem;
-  }
-
-
-    /* Content Section */
-    .content {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-      background: white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      color: #f39c12;
-    }
-
-    .content p {
-      font-size: 1.2rem;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      text-align: justify;
-    }
-
-    .content img {
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      border-radius: 10px;
-      margin: 2rem 0;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Footer */
-    footer {
-      background: #1a1a1a;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .social-icons a {
-      color: white;
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    .social-icons a:hover {
-      color: #f39c12;
-    }
-
-    footer p {
-      font-size: 1rem;
-      margin: 0;
-    }
-  </style>
-</head>
-<body>
   <!-- Navbar -->
   <nav class="navbar">
     <a href="#" class="logo">
@@ -258,6 +12,8 @@
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
+      <a href="#try" class="btn btn-outline">Try Us Free</a>
+      <a href="#join" class="btn btn-primary">Join Now</a>
     </div>
     <div class="hamburger">
       <div></div>
@@ -270,22 +26,34 @@
   <section class="hero" id="home">
     <div class="hero-content">
       <h1>Transform Your Body</h1>
-      <p>Join Fitness Club and achieve your health goals with us.</p>
+      <p>What’s holding you back from being your best self?.</p>
       <a href="#about" class="cta-button">Learn More</a>
     </div>
   </section>
 
   <!-- About Section -->
   <div class="content" id="about">
-    <h2>About Fitness Club</h2>
+    <h2>About Fitness</h2>
     <p>
-      Welcome to Fitness Club, your ultimate destination for health and fitness. We believe in providing a supportive environment for people of all levels to achieve their goals.
+      Welcome to Fitness Club, your ultimate destination for health and fitness. I believe in providing a supportive environment for people of all levels to achieve their goals.
     </p>
     <img src="/images/fclub.webp" alt="About Fitness Club">
     <p>
-      Join us today and be part of a community that values health, wellness, and personal growth.
+      Join me today and be part of my community that values health, wellness, and personal growth.
     </p>
   </div>
+
+  <div class="bmi-calculator">
+    <h1>BMI Calculator</h1>
+    <label for="weight">Weight (kg):</label>
+    <input type="number" id="weight" placeholder="Enter your weight">
+    <label for="height">Height (cm):</label>
+    <input type="number" id="height" placeholder="Enter your height">
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <div class="result" id="bmi-result"></div>
+  </div>
+
+
 
   <!-- Footer -->
   <footer>
@@ -298,12 +66,5 @@
     <p>&copy; 2025 Fitness Club. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const menu = document.querySelector('.menu');
-
-    hamburger.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-  </script>
+  
 
